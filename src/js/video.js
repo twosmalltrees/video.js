@@ -19,7 +19,7 @@ import AudioTrack from './tracks/audio-track.js';
 import VideoTrack from './tracks/video-track.js';
 
 import { createTimeRanges } from './utils/time-ranges.js';
-import formatTime from './utils/format-time.js';
+import formatTime, { setFormatTime } from './utils/format-time.js';
 import log from './utils/log.js';
 import * as Dom from './utils/dom.js';
 import * as browser from './utils/browser.js';
@@ -121,6 +121,8 @@ function videojs(id, options, ready) {
  * of functions that are run when a lifecycle is triggered
  */
 videojs.hooks_ = {};
+
+videojs.setFormatTime = setFormatTime;
 
 /**
  * Get a list of hooks for a specific lifecycle
@@ -554,7 +556,6 @@ videojs.createTimeRange = videojs.createTimeRanges = createTimeRanges;
  *
  * @borrows format-time:formatTime as videojs.formatTime
  */
-videojs.formatTime = formatTime;
 
 /**
  * Resolve and parse the elements of a URL
